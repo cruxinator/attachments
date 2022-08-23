@@ -22,5 +22,10 @@
             "name": "Alex Goodwin",
             "email": "cyberia.resurrection@gmail.com"
         }
-    ]
+    ],
+    "scripts": {
+        "post-autoload-dump": [
+            "@php ./vendor/bin/testbench package:discover --ansi"
+        ]
+    }
 }
