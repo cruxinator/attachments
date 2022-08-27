@@ -10,7 +10,8 @@
         "php-ffmpeg/php-ffmpeg": "*",
         "ext-json": "*",
         "ext-bcmath": "*",
-        "ext-gd": "*"
+        "ext-gd": "*",
+        "cruxinator/responsemodels": "dev-master"
     },
     "require-dev": {
         "orchestra/testbench": "^3.0|^4.0|^5.0|^6.0|^7.0",
