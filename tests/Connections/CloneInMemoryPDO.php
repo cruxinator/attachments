@@ -6,7 +6,7 @@
  * Time: 12:29 PM
  */
 
-namespace Cruxinator\Tests\Connections;
+namespace Cruxinator\Attachments\Tests\Connections;
 
 use PDO;
 use SQLite3;

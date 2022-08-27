@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Crypt;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\File as FileHelper;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
@@ -615,9 +616,6 @@ class Attachment extends Model implements AttachmentContract
      */
     protected function isLocalStorage(): bool
     {
-        $adapter = Storage::disk($this->disk)->getDriver()->getAdapter();
-        return $adapter instanceof Local;
-
         $disk = $this->disk;
         $options = config('filesystems.disks');
         // dig out driver for selected disk

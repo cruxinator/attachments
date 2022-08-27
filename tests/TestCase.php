@@ -9,6 +9,10 @@ declare(strict_types=1);
  */
 namespace Cruxinator\Attachments\Tests;
 
+use Cruxinator\Attachments\Models\Archive;
+use Cruxinator\Attachments\Models\Attachment;
+use Cruxinator\Attachments\Models\Document;
+use Cruxinator\Attachments\Models\Media;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
@@ -34,6 +38,12 @@ class TestCase extends BaseTestCase
         $prop   = $reflec->getProperty('namespace');
         $prop->setAccessible(true);
         $prop->setValue($app, 'Cruxinator\\Orchestra\\');
+        $app['config']->set('attachments.uuid_provider', Attachment::class.'@uuid_v4_base36');
+        $app['config']->set('attachments.attachment_sub_models', [
+            Media::class,
+            Document::class,
+            Archive::class
+        ]);
 
         // Setup default database to use sqlite :memory:
         $app['config']->set('database.default', 'testbench');
@@ -52,7 +62,7 @@ class TestCase extends BaseTestCase
     public function setUp(): void
     {
         parent::setUp();
-        //$this->loadMigrationsFrom(realpath(__DIR__ . '/database/migrations'));
+        $this->loadMigrationsFrom(realpath(__DIR__ . '/database/migrations'));
         date_default_timezone_set('UTC');
     }
 

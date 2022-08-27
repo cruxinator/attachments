@@ -7,14 +7,19 @@
         "php": "^7.4|^8.0",
         "cruxinator/singletableinheritance": "*",
         "cruxinator/laravel-package": "*",
+        "php-ffmpeg/php-ffmpeg": "*",
         "ext-json": "*",
-        "ext-bcmath": "*"
+        "ext-bcmath": "*",
+        "ext-gd": "*"
     },
     "require-dev": {
         "orchestra/testbench": "^3.0|^4.0|^5.0|^6.0|^7.0",
         "orchestra/database": "^3.0|^4.0|^5.0|^6.0|^7.0",
         "phpunit/phpunit": "^8.5|^9.0",
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "league/flysystem-sftp": "^1.0",
+        "ext-sqlite3": "*",
+        "pcov/clobber": "dev-master"
     },
     "license": "MIT",
     "autoload": {
@@ -24,8 +29,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Cruxinator\\Tests\\": "tests/",
-            "Cruxinator\\Tests\\Connections\\": "tests/connections/"
+            "Cruxinator\\Attachments\\Tests\\": "tests/",
+            "Cruxinator\\Attachments\\Tests\\Connections\\": "tests/connections/"
         }
     },
     "authors": [

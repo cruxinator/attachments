@@ -9,7 +9,7 @@ declare(strict_types=1);
  */
 namespace Cruxinator\Attachments\Tests;
 
-use Cruxinator\Tests\Connections\CloneInMemoryPDO;
+use Cruxinator\Attachments\Tests\Connections\CloneInMemoryPDO;
 use Illuminate\Database\Migrations\MigrationRepositoryInterface;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
@@ -29,9 +29,9 @@ class TestServiceProvider extends BaseServiceProvider
 
     public function boot()
     {
-        $this->loadMigrationsFrom(
-            __DIR__ . '/database/migrations'
-        );
+        $path = __DIR__ . '/database/migrations';
+        $path = str_replace('/', DIRECTORY_SEPARATOR, $path);
+        $this->loadMigrationsFrom($path);
     }
 
     protected function loadMigrationsFrom($path)

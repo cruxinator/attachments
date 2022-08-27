@@ -15,6 +15,7 @@ class CreateCruxAttachmentsTable extends Migration
         {
             Schema::create('attachments', function (Blueprint $table) {
                 $table->increments('id');
+                $table->string('type')->index();
                 $table->string('uuid', 64)->index();
                 $table->string('disk', 32);
                 $table->string('filepath', 512);
